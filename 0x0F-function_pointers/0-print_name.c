@@ -1,22 +1,15 @@
-#include <stdio.h>
+#include "function_pointers.h"
 
+/**
+ * print_name - a function that prints a name.
+ * @name: the name given
+ * @f: function of name
+ *
+ * Rteurn: void
+ */
 void print_name(char *name, void (*f)(char *))
 {
-    (*f)(name);
-}
-void print_name_as_is(char *name)
-{
-    printf("Hello, my name is %s\n", name);
-}
+	if (name != NULL && f != NULL)
 
-void print_name_uppercase(char *name)
-{
-    // implementation omitted for brevity
-}
-
-int main(void)
-{
-    print_name("Bob", print_name_as_is);
-    print_name("Bob Dylan", print_name_uppercase);
-    return 0;
+		f(name);
 }
